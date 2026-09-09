@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Badge achievement</title><desc id="desc">Emblème temporaire en forme de puce électronique</desc>
+  <rect width="64" height="64" rx="6" fill="#101820"/><path fill="#26313A" stroke="#B9D65C" stroke-width="2" d="M13 13h38v38H13z"/>
+  <path stroke="#65D5D2" stroke-width="3" d="M20 8v10M32 8v10M44 8v10M20 46v10M32 46v10M44 46v10M8 20h10M8 32h10M8 44h10M46 20h10M46 32h10M46 44h10"/>
+  <path fill="#B9D65C" d="m32 20 3.7 7.4 8.2 1.2-6 5.8 1.5 8.2-7.4-3.9-7.4 3.9 1.5-8.2-6-5.8 8.2-1.2z"/>
+</svg>

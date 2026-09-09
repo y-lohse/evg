@@ -1,0 +1,9 @@
+{
+  "name": "clowrid-invitational-live",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check app.js && node --check lib/scoring.js && node --check lib/view.js"
+  }
+}

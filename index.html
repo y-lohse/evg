@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101820">
+  <meta name="description" content="Programme, classement et achievements du Clowrid Invitational.">
+  <title>Clowrid Invitational // Live Monitor</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#app">Aller au contenu</a>
+  <div class="scanlines" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="brand-block">
+      <span class="brand-kicker">LAN EVENT / 2026</span>
+      <a class="brand" href="#programme" aria-label="Clowrid Invitational — Programme">CLOWRID<br><strong>INVITATIONAL</strong></a>
+    </div>
+    <div class="system-status" aria-label="État du système">
+      <span class="led" aria-hidden="true"></span>
+      <span><b>SYSTÈME PRÊT</b><small id="sync-time">SYNC --:--</small></span>
+    </div>
+  </header>
+
+  <nav class="main-nav" aria-label="Navigation principale">
+    <a href="#programme" data-route="programme"><span>01</span> Programme</a>
+    <a href="#classement" data-route="classement"><span>02</span> Classement</a>
+    <a href="#achievements" data-route="achievements"><span>03</span> Achievements</a>
+    <button id="refresh" type="button" title="Recharger les données">↻ <span>Actualiser</span></button>
+  </nav>
+
+  <div class="demo-marker" role="status"><span>●</span> DONNÉES DE DÉMONSTRATION</div>
+  <main id="app" tabindex="-1" aria-live="polite">
+    <div class="state-panel loading"><span class="spinner" aria-hidden="true"></span><p>Connexion au serveur de tournoi…</p></div>
+  </main>
+
+  <footer>
+    <span>CLOWRID INVITATIONAL // LOCAL NETWORK</span>
+    <span>BUILD <b>0.1-DEMO</b></span>
+  </footer>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

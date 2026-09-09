@@ -1,0 +1,31 @@
+{
+  "meta":{"title":"Clowrid Invitational","edition":"2026","status":"Données de démonstration","updated":"2026-09-18T18:00:00+02:00"},
+  "players":[
+    {"id":"whyl","name":"Whyl","initials":"WY","color":"#65D5D2"},
+    {"id":"bayboushe","name":"Bayboushe","initials":"BB","color":"#F2A65A"},
+    {"id":"maf","name":"Maf","initials":"MF","color":"#A98BFF"},
+    {"id":"clowrid","name":"Clowrid","initials":"CL","color":"#B9D65C"},
+    {"id":"gruntzy","name":"Gruntzy","initials":"GZ","color":"#E27D91"},
+    {"id":"linkthepomme","name":"linkthepomme","initials":"LP","color":"#78A6E8"},
+    {"id":"abyssou","name":"abyssou","initials":"AB","color":"#E3C463"},
+    {"id":"mino","name":"Mino","initials":"MN","color":"#B58BCB"}
+  ],
+  "matches":[
+    {"id":"demo-01","session":"01","date":"2026-09-19T13:25:00+02:00","game":"Warcraft III classique","format":"4v4","teams":[{"name":"Nœud Alpha","outcome":"win","players":["whyl","clowrid","gruntzy","mino"]},{"name":"Nœud Bravo","outcome":"loss","players":["bayboushe","maf","linkthepomme","abyssou"]}]},
+    {"id":"demo-02","session":"01","date":"2026-09-19T14:40:00+02:00","game":"Footmen Frenzy","format":"2v2v2v2","teams":[{"name":"Paquet 1","placement":1,"players":["bayboushe","maf"]},{"name":"Paquet 2","placement":2,"players":["clowrid","abyssou"]},{"name":"Paquet 3","placement":3,"players":["whyl","linkthepomme"]},{"name":"Paquet 4","placement":4,"players":["gruntzy","mino"]}]},
+    {"id":"demo-03","session":"02","date":"2026-09-19T17:20:00+02:00","game":"Warlock","format":"ffa","placements":["mino","abyssou","whyl","gruntzy","maf","clowrid","bayboushe","linkthepomme"]},
+    {"id":"demo-04","session":"02","date":"2026-09-19T18:30:00+02:00","game":"Legion TD","format":"4v4","teams":[{"name":"Déploiement vert","outcome":"win","players":["bayboushe","abyssou","gruntzy","linkthepomme"]},{"name":"Déploiement bleu","outcome":"loss","players":["whyl","maf","clowrid","mino"]}]},
+    {"id":"demo-05","session":"03","date":"2026-09-19T22:45:00+02:00","game":"DotA — Partie 1","format":"4v4","teams":[{"name":"Sentinel","outcome":"win","players":["clowrid","whyl","maf","linkthepomme"]},{"name":"Scourge","outcome":"loss","players":["bayboushe","mino","gruntzy","abyssou"]}]},
+    {"id":"demo-06","session":"03","date":"2026-09-19T23:35:00+02:00","game":"DotA — Partie 2","format":"4v4","teams":[{"name":"Sentinel","outcome":"win","players":["whyl","gruntzy","clowrid","abyssou"]},{"name":"Scourge","outcome":"loss","players":["mino","bayboushe","linkthepomme","maf"]}]}
+  ],
+  "unlocks":[
+    {"playerId":"whyl","achievementId":"first-blood"},{"playerId":"whyl","achievementId":"full-protocol-stack"},{"playerId":"whyl","achievementId":"podium-regular"},{"playerId":"whyl","achievementId":"stable-connection"},{"playerId":"whyl","achievementId":"hotfix-deployed"},
+    {"playerId":"clowrid","achievementId":"first-blood"},{"playerId":"clowrid","achievementId":"shared-resources"},{"playerId":"clowrid","achievementId":"local-backup"},
+    {"playerId":"bayboushe","achievementId":"first-blood"},{"playerId":"bayboushe","achievementId":"two-factor-victory"},{"playerId":"bayboushe","achievementId":"plug-and-play"},
+    {"playerId":"maf","achievementId":"morning-sync"},{"playerId":"maf","achievementId":"version-upgrade"},
+    {"playerId":"gruntzy","achievementId":"rollback-complete"},{"playerId":"gruntzy","achievementId":"after-hours"},
+    {"playerId":"linkthepomme","achievementId":"open-lobby"},{"playerId":"linkthepomme","achievementId":"night-shift"},
+    {"playerId":"abyssou","achievementId":"early-boot"},{"playerId":"abyssou","achievementId":"hotfix-deployed"},
+    {"playerId":"mino","achievementId":"first-blood"},{"playerId":"mino","achievementId":"shared-resources"}
+  ]
+}
