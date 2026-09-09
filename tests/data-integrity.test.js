@@ -11,6 +11,8 @@ test('event data contains exactly eight unique participants and valid match refe
   const ids = new Set(event.players.map(player => player.id));
   assert.equal(ids.size, 8);
   assert.deepEqual(event.players.map(p => p.name), ['Whyl','Bayboushe','Maf','Clowrid','Gruntzy','linkthepomme','abyssou','Mino']);
+  assert.equal(event.matches.length, 6);
+  assert.ok(event.matches.every(match => match.id.startsWith('demo-')), 'all six results must be clearly labeled demo data');
   for (const match of event.matches) {
     const refs = match.placements ?? match.teams.flatMap(team => team.players);
     refs.forEach(id => assert.ok(ids.has(id), `${match.id} references unknown player ${id}`));
@@ -50,4 +52,47 @@ test('programme references four existing poster images', async () => {
   const posters = programme.days.flatMap(day => day.items).filter(item => item.poster).map(item => item.poster);
   assert.equal(posters.length, 4);
   await Promise.all(posters.map(path => access(new URL(path.replace(/^\.\//, ''), root))));
+});
+
+test('official programme sessions use structured games with participant-facing formats only', async () => {
+  const programme = await load('data/programme.json');
+  const official = programme.days.flatMap(day => day.items).filter(item => item.poster);
+  const allowed = new Set(['FFA', '2 ÉQUIPES', '4 ÉQUIPES', 'FORMAT LIBRE']);
+  assert.equal(official.length, 4);
+  for (const session of official) {
+    assert.ok(!('details' in session), `${session.title} still has ad-hoc details`);
+    assert.ok(Array.isArray(session.games) && session.games.length > 0);
+    for (const game of session.games) {
+      assert.ok(game.title);
+      assert.ok(Array.isArray(game.formats) && game.formats.length > 0);
+      game.formats.forEach(format => assert.ok(allowed.has(format), `${format} is not approved vocabulary`));
+    }
+  }
+  const warcraft = official.flatMap(session => session.games).find(game => game.title === 'Warcraft III classique');
+  assert.deepEqual(warcraft.formats, ['FFA', '2 ÉQUIPES']);
+  const dota = official.flatMap(session => session.games).find(game => game.title === 'DotA');
+  assert.deepEqual(dota.formats, ['2 ÉQUIPES']);
+  const worms = official.flatMap(session => session.games).find(game => game.title === 'Worms W.M.D.');
+  assert.deepEqual(worms.formats, ['2 ÉQUIPES']);
+});
+
+test('programme includes revised overnight and Sunday copy', async () => {
+  const programme = await load('data/programme.json');
+  const items = programme.days.flatMap(day => day.items);
+  const overnight = items.find(item => item.title === 'Nuit en réseau');
+  assert.equal(overnight.time, 'DÈS 00:30');
+  assert.deepEqual(overnight.games.map(game => game.title), ['Trackmania','Brawlhalla','Fall Guys','Rocket League']);
+  const breakfast = items.find(item => item.title === 'Petit déjeuner & jeux libres');
+  assert.equal(breakfast.time, 'AVANT 10:00');
+  const finale = items.find(item => item.title === 'Résultats officiels');
+  assert.equal(finale.details, 'Déjeuner pendant l’annonce du classement et la remise des récompenses.');
+});
+
+test('shell omits refresh controls and legacy descriptive banner copy', async () => {
+  const [html, app] = await Promise.all([
+    readFile(new URL('index.html', root), 'utf8'),
+    readFile(new URL('app.js', root), 'utf8')
+  ]);
+  assert.doesNotMatch(html, /Actualiser|id="refresh"/i);
+  assert.doesNotMatch(app, /Deux jours, quatre sessions|ÉCRAN|scoreboard|planification/i);
 });
