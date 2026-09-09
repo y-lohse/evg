@@ -38,6 +38,13 @@ test('demo DotA matches use the 4v4 team format', async () => {
   assert.ok(dotaMatches.every(match => match.format === '4v4'));
 });
 
+test('page declares an existing SVG favicon', async () => {
+  const html = await readFile(new URL('index.html', root), 'utf8');
+  const href = html.match(/<link rel="icon" href="([^"]+)"/)?.[1];
+  assert.ok(href, 'missing favicon link');
+  await access(new URL(href.replace(/^\.\//, ''), root));
+});
+
 test('programme references four existing poster images', async () => {
   const programme = await load('data/programme.json');
   const posters = programme.days.flatMap(day => day.items).filter(item => item.poster).map(item => item.poster);
