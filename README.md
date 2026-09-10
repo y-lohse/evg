@@ -19,4 +19,4 @@ npm run check
 
 Les scores sont calculés à partir de l’historique brut de `data/event.json`. Les tendances comparent le classement actuel à celui précédant les trois résultats les plus récents (triés chronologiquement). Les contenus marqués comme démonstration sont fictifs et destinés au prototype.
 
-Le programme est éditable dans `data/programme.json`. Les sessions officielles utilisent un tableau `games` composé d’un `title` et de `formats` (`FFA`, `2 ÉQUIPES`, `4 ÉQUIPES` ou `FORMAT LIBRE`) ; les entrées de jeu libre peuvent omettre `formats`. Tous les chemins restent relatifs pour un déploiement GitHub Pages sous un sous-répertoire.
+Le programme est éditable dans `data/programme.json`. Les sessions officielles utilisent un tableau `games` composé d’un `title` et de `formats` (`FFA`, `2v2v2v2`, `4v4` ou `FORMAT LIBRE`) ; les entrées de jeu libre peuvent omettre `formats`. Dans `data/event.json`, les équipes sont uniquement des groupes de joueurs avec un résultat ou une place : aucun nom d’équipe n’est demandé. Tous les chemins restent relatifs pour un déploiement GitHub Pages sous un sous-répertoire.

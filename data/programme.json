@@ -6,13 +6,13 @@
       "date": "JOUR 01",
       "items": [
         {"time":"11:00–13:00","title":"Arrivées & jeux libres","games":[{"title":"Trackmania"},{"title":"Brawlhalla"},{"title":"Fall Guys"},{"title":"Rocket League"}],"tone":"neutral"},
-        {"time":"13:00–16:00","title":"01 Bessines: Spawn Point","games":[{"title":"Warcraft III classique","formats":["FFA","2 ÉQUIPES"]},{"title":"Footmen Frenzy","formats":["4 ÉQUIPES"]}],"tone":"cyan","poster":"./assets/session-01.png","session":"SESSION 01"},
+        {"time":"13:00–16:00","title":"01 Bessines: Spawn Point","games":[{"title":"Warcraft III classique","formats":["FFA","4v4"]},{"title":"Footmen Frenzy","formats":["2v2v2v2"]}],"tone":"cyan","poster":"./assets/session-01.png","session":"SESSION 01"},
         {"time":"16:00–17:00","title":"Pause jeux de société","games":[{"title":"Motus"},{"title":"Petit Bac"}],"tone":"neutral"},
-        {"time":"17:00–19:30","title":"02 Poitiers: Custom Campaign","games":[{"title":"Warlock","formats":["FFA"]},{"title":"Legion TD","formats":["2 ÉQUIPES"]}],"tone":"orange","poster":"./assets/session-02.png","session":"SESSION 02"},
+        {"time":"17:00–19:30","title":"02 Poitiers: Custom Campaign","games":[{"title":"Warlock","formats":["FFA"]},{"title":"Legion TD","formats":["4v4"]}],"tone":"orange","poster":"./assets/session-02.png","session":"SESSION 02"},
         {"time":"19:30–20:45","title":"Dîner","tone":"neutral"},
         {"time":"21:15–22:15","title":"Escape game","tone":"neutral"},
-        {"time":"22:30–00:30","title":"03 Niort: Ranked Years","games":[{"title":"DotA","formats":["2 ÉQUIPES"]}],"tone":"violet","poster":"./assets/session-03.png","session":"SESSION 03"},
-        {"time":"DÈS 00:30","title":"Nuit en réseau","games":[{"title":"Trackmania"},{"title":"Brawlhalla"},{"title":"Fall Guys"},{"title":"Rocket League"}],"tone":"neutral"}
+        {"time":"22:30–00:30","title":"03 Niort: Ranked Years","games":[{"title":"DotA","formats":["4v4"]}],"tone":"violet","poster":"./assets/session-03.png","session":"SESSION 03"},
+        {"time":"DÈS 00:30","title":"Connexion nocturne","games":[{"title":"Trackmania"},{"title":"Brawlhalla"},{"title":"Fall Guys"},{"title":"Rocket League"}],"tone":"neutral"}
       ]
     },
     {
@@ -21,8 +21,8 @@
       "date": "JOUR 02",
       "items": [
         {"time":"AVANT 10:00","title":"Petit déjeuner & jeux libres","tone":"neutral"},
-        {"time":"10:00–13:00","title":"04 Saintes: Open Lobby","games":[{"title":"Worms W.M.D.","formats":["2 ÉQUIPES"]},{"title":"Knight Squad","formats":["FFA","2 ÉQUIPES","4 ÉQUIPES"]},{"title":"Choix du public","formats":["FORMAT LIBRE"]}],"tone":"lime","poster":"./assets/session-04.png","session":"SESSION 04"},
-        {"time":"DÈS 13:00","title":"Résultats officiels","details":"Déjeuner pendant l’annonce du classement et la remise des récompenses.","tone":"neutral"}
+        {"time":"10:00–13:00","title":"04 Saintes: Open Lobby","games":[{"title":"Worms W.M.D.","formats":["4v4"]},{"title":"Knight Squad","formats":["FFA","4v4","2v2v2v2"]},{"title":"Choix du public","formats":["FORMAT LIBRE"]}],"tone":"lime","poster":"./assets/session-04.png","session":"SESSION 04"},
+        {"time":"DÈS 13:00","title":"Résultats et repas","tone":"neutral"}
       ]
     }
   ]

@@ -40,7 +40,7 @@ test('demo DotA matches use the 4v4 team format', async () => {
   assert.ok(dotaMatches.every(match => match.format === '4v4'));
 });
 
-test('page declares an existing SVG favicon', async () => {
+test('page declares an existing favicon', async () => {
   const html = await readFile(new URL('index.html', root), 'utf8');
   const href = html.match(/<link rel="icon" href="([^"]+)"/)?.[1];
   assert.ok(href, 'missing favicon link');
@@ -57,7 +57,7 @@ test('programme references four existing poster images', async () => {
 test('official programme sessions use structured games with participant-facing formats only', async () => {
   const programme = await load('data/programme.json');
   const official = programme.days.flatMap(day => day.items).filter(item => item.poster);
-  const allowed = new Set(['FFA', '2 ÉQUIPES', '4 ÉQUIPES', 'FORMAT LIBRE']);
+  const allowed = new Set(['FFA', '4v4', '2v2v2v2', 'FORMAT LIBRE']);
   assert.equal(official.length, 4);
   for (const session of official) {
     assert.ok(!('details' in session), `${session.title} still has ad-hoc details`);
@@ -69,23 +69,23 @@ test('official programme sessions use structured games with participant-facing f
     }
   }
   const warcraft = official.flatMap(session => session.games).find(game => game.title === 'Warcraft III classique');
-  assert.deepEqual(warcraft.formats, ['FFA', '2 ÉQUIPES']);
+  assert.deepEqual(warcraft.formats, ['FFA', '4v4']);
   const dota = official.flatMap(session => session.games).find(game => game.title === 'DotA');
-  assert.deepEqual(dota.formats, ['2 ÉQUIPES']);
+  assert.deepEqual(dota.formats, ['4v4']);
   const worms = official.flatMap(session => session.games).find(game => game.title === 'Worms W.M.D.');
-  assert.deepEqual(worms.formats, ['2 ÉQUIPES']);
+  assert.deepEqual(worms.formats, ['4v4']);
 });
 
 test('programme includes revised overnight and Sunday copy', async () => {
   const programme = await load('data/programme.json');
   const items = programme.days.flatMap(day => day.items);
-  const overnight = items.find(item => item.title === 'Nuit en réseau');
+  const overnight = items.find(item => item.title === 'Connexion nocturne');
   assert.equal(overnight.time, 'DÈS 00:30');
   assert.deepEqual(overnight.games.map(game => game.title), ['Trackmania','Brawlhalla','Fall Guys','Rocket League']);
   const breakfast = items.find(item => item.title === 'Petit déjeuner & jeux libres');
   assert.equal(breakfast.time, 'AVANT 10:00');
-  const finale = items.find(item => item.title === 'Résultats officiels');
-  assert.equal(finale.details, 'Déjeuner pendant l’annonce du classement et la remise des récompenses.');
+  const finale = items.find(item => item.title === 'Résultats et repas');
+  assert.equal('details' in finale, false);
 });
 
 test('shell omits refresh controls and legacy descriptive banner copy', async () => {

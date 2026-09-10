@@ -12,7 +12,7 @@ const players = [
 test('match rows are newest first and preserve individual FFA placements', () => {
   const matches = [
     {id:'old',date:'2026-09-19T10:00:00+02:00',game:'Old',format:'ffa',placements:players.map(p=>p.id)},
-    {id:'new',date:'2026-09-19T12:00:00+02:00',game:'New',format:'4v4',teams:[{outcome:'win',name:'Win',players:['a','b','c','d']},{outcome:'loss',name:'Loss',players:['e','f','g','h']}]}
+    {id:'new',date:'2026-09-19T12:00:00+02:00',game:'New',format:'4v4',teams:[{outcome:'win',players:['a','b','c','d']},{outcome:'loss',players:['e','f','g','h']}]}
   ];
   const rows = buildMatchRows(matches, players);
   assert.deepEqual(rows.map(row => row.id), ['new','old']);
@@ -23,10 +23,10 @@ test('match rows are newest first and preserve individual FFA placements', () =>
 
 test('4v4 and 2v2v2v2 history keeps teammates in two and four visual groups', () => {
   const matches = [
-    {id:'four',date:'2026-09-19T12:00:00Z',game:'Four',format:'4v4',teams:[{outcome:'win',name:'Alpha',players:['a','b','c','d']},{outcome:'loss',name:'Bravo',players:['e','f','g','h']}]},
+    {id:'four',date:'2026-09-19T12:00:00Z',game:'Four',format:'4v4',teams:[{outcome:'win',players:['a','b','c','d']},{outcome:'loss',players:['e','f','g','h']}]},
     {id:'duos',date:'2026-09-19T13:00:00Z',game:'Duos',format:'2v2v2v2',teams:[
-      {placement:1,name:'One',players:['a','b']},{placement:2,name:'Two',players:['c','d']},
-      {placement:3,name:'Three',players:['e','f']},{placement:4,name:'Four',players:['g','h']}
+      {placement:1,players:['a','b']},{placement:2,players:['c','d']},
+      {placement:3,players:['e','f']},{placement:4,players:['g','h']}
     ]}
   ];
   const rows = buildMatchRows(matches, players);

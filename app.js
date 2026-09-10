@@ -12,6 +12,38 @@ const avatar = (player, { small = false, state = '' } = {}) => {
 };
 const formatDate = date => new Intl.DateTimeFormat('fr-FR', { weekday:'short', hour:'2-digit', minute:'2-digit' }).format(new Date(date)).replace('.', '');
 
+function normalizeFormat(format) {
+  const key = String(format).toLowerCase();
+  if (key === 'ffa') return { type:'ffa', label:'FFA' };
+  if (key === '2v2v2v2' || key === '4 équipes') return { type:'duos', label:'2v2' };
+  if (key === '4v4' || key === '2 équipes') return { type:'teams', label:'4v4' };
+  return { type:'free', label:'LIBRE' };
+}
+
+function formatGroups(type, groups) {
+  if (groups?.length) return groups.map(group => {
+    const members = group.members ?? group.players ?? [];
+    return members.map(member => {
+      const player = typeof member === 'string' ? store.event.players.find(item => item.id === member) : member.player ?? member;
+      return player?.color;
+    }).filter(Boolean);
+  });
+  const colors = store.event.players.map(player => player.color);
+  if (type === 'duos') return [colors.slice(0,2), colors.slice(2,4), colors.slice(4,6), colors.slice(6,8)];
+  if (type === 'teams') return [colors.slice(0,4), colors.slice(4,8)];
+  return colors.map(color => [color]);
+}
+
+function formatMark(format, groups) {
+  const { type, label } = normalizeFormat(format);
+  if (type === 'free') return `<span class="format-chip">${label}</span>`;
+  const swatches = formatGroups(type, groups).map(colors => {
+    const stops = colors.map((color, index) => `${color} ${index * 100 / colors.length}% ${(index + 1) * 100 / colors.length}%`).join(',');
+    return `<i style="background:linear-gradient(135deg,${stops})"></i>`;
+  }).join('');
+  return `<span class="format-mark format-${type}" role="img" aria-label="Format ${label}"><span>${swatches}</span><b>${label}</b></span>`;
+}
+
 async function fetchJson(path, bust) {
   const response = await fetch(`${path}?v=${bust}`, { cache:'no-store' });
   if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
@@ -41,7 +73,7 @@ function viewHead(metadata, title) {
 
 function renderGames(item) {
   if (!item.games) return item.details ? `<p class="schedule-details">${escapeHtml(item.details)}</p>` : '';
-  return `<ul class="game-list">${item.games.map(game => `<li><strong>${escapeHtml(game.title)}</strong>${game.formats?.length ? `<span class="format-list">${game.formats.map(format => `<span class="format-chip">${escapeHtml(format)}</span>`).join('')}</span>` : ''}</li>`).join('')}</ul>`;
+  return `<ul class="game-list">${item.games.map(game => `<li><strong>${escapeHtml(game.title)}</strong>${game.formats?.length ? `<span class="format-list">${game.formats.map(format => formatMark(format)).join('')}</span>` : ''}</li>`).join('')}</ul>`;
 }
 
 function renderProgramme() {
@@ -59,8 +91,7 @@ function renderProgramme() {
 function badgeStrip(playerId) {
   const earned = store.event.unlocks.filter(unlock => unlock.playerId === playerId).map(unlock => store.achievements.find(item => item.id === unlock.achievementId)).filter(Boolean);
   if (!earned.length) return '<span class="locked-text">—</span>';
-  const shown = earned.slice(0, 5);
-  return shown.map(item => `<img class="mini-badge" src="${escapeHtml(item.badge)}" alt="" width="38" height="38" aria-label="${escapeHtml(item.name)}" title="${escapeHtml(item.name)}">`).join('') + (earned.length > shown.length ? `<span class="more-badges">+${earned.length-shown.length}</span>` : '');
+  return earned.map(item => `<img class="mini-badge" src="${escapeHtml(item.badge)}" alt="" width="38" height="38" aria-label="${escapeHtml(item.name)}" title="${escapeHtml(item.name)}">`).join('');
 }
 
 function trendIndicator(trend) {
@@ -71,7 +102,7 @@ function trendIndicator(trend) {
 }
 
 function renderTeamGroup(group) {
-  return `<section class="team-group ${group.outcome || ''}" aria-label="${escapeHtml(`${group.name}, ${group.label}`)}"><header><strong>${escapeHtml(group.name)}</strong><span>${escapeHtml(group.label)}</span></header><div>${group.members.map(member => `<div class="team-member">${avatar(member.player,{small:true})}<span>${escapeHtml(member.player.name)}</span><b>+${member.points}</b></div>`).join('')}</div></section>`;
+  return `<section class="team-group ${group.outcome || ''}" aria-label="${escapeHtml(`Équipe ${group.index}, ${group.label}`)}"><header><strong>ÉQUIPE ${group.index}</strong><span>${escapeHtml(group.label)}</span></header><div>${group.members.map(member => `<div class="team-member">${avatar(member.player,{small:true})}<span>${escapeHtml(member.player.name)}</span><b>+${member.points}</b></div>`).join('')}</div></section>`;
 }
 
 function renderClassement() {
@@ -84,8 +115,8 @@ function renderClassement() {
     <strong class="score">${player.score}<small class="score-label">PTS</small></strong>
   </div>`).join('');
   const history = rows.map(match => `<article class="match-card">
-    <header class="match-head"><div><span class="match-meta">${formatDate(match.date)} · SESSION ${escapeHtml(match.session)}</span><h3>${escapeHtml(match.game)}</h3></div><span class="format-chip">${escapeHtml(match.format.toUpperCase())}</span></header>
-    ${match.format === 'ffa' ? `<div class="match-results">${match.results.map(result => `<div class="result-line">${avatar(result.player,{small:true})}<span><span class="result-player">${escapeHtml(result.player.name)}</span><br><span class="result-label">${escapeHtml(result.label)}</span></span><span class="points">+${result.points}</span></div>`).join('')}</div>` : `<div class="team-groups">${match.groups.map(renderTeamGroup).join('')}</div>`}
+    <header class="match-head"><div><span class="match-meta">${formatDate(match.date)} · SESSION ${escapeHtml(match.session)}</span><h3>${escapeHtml(match.game)}</h3></div>${formatMark(match.format, match.groups)}</header>
+    ${match.format === 'ffa' ? `<div class="match-results">${match.results.map(result => `<div class="result-line">${avatar(result.player,{small:true})}<span><span class="result-summary"><span class="result-player">${escapeHtml(result.player.name)}</span><b class="points">+${result.points}</b></span><span class="result-label">${escapeHtml(result.label)}</span></span></div>`).join('')}</div>` : `<div class="team-groups">${match.groups.map(renderTeamGroup).join('')}</div>`}
   </article>`).join('');
   app.innerHTML = viewHead('8 JOUEURS · CLASSEMENT GÉNÉRAL','Classement') + `<div class="score-layout">
     <section aria-labelledby="ranking-title"><h2 class="section-title" id="ranking-title"><span>●</span> Tableau live</h2><div class="leaderboard">${leaderboard}</div>
