@@ -121,7 +121,7 @@ function renderClassement() {
   app.innerHTML = viewHead('8 JOUEURS · CLASSEMENT GÉNÉRAL','Classement') + `<div class="score-layout">
     <section aria-labelledby="ranking-title"><h2 class="section-title" id="ranking-title"><span>●</span> Tableau live</h2><div class="leaderboard">${leaderboard}</div>
       <aside class="rules"><h3>Protocole de score · 12 pts / résultat</h3><dl><dt>FFA · places 1→8</dt><dd>5 / 3 / 2 / 1 / 1 / 0 / 0 / 0</dd><dt>4 équipes · par joueur</dt><dd>3 / 2 / 1 / 0</dd><dt>2 équipes · par joueur</dt><dd>2 victoire / 1 défaite</dd></dl></aside>
-    </section><section class="history-column" aria-labelledby="history-title"><div class="history-title-row"><h2 class="section-title" id="history-title">Historique des résultats</h2><span>${rows.length} RÉSULTATS</span></div><div class="history-list">${history}</div></section></div>`;
+    </section><section class="history-column" aria-labelledby="history-title"><div class="history-title-row"><h2 class="section-title" id="history-title">Historique des résultats</h2><span>${rows.length} RÉSULTATS</span></div><div class="history-list">${history || '<p class="history-empty">Aucun résultat enregistré.</p>'}</div></section></div>`;
 }
 
 function renderAchievements() {

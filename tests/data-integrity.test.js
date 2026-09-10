@@ -5,14 +5,14 @@ import { readFile, access } from 'node:fs/promises';
 const root = new URL('../', import.meta.url);
 const load = async path => JSON.parse(await readFile(new URL(path, root), 'utf8'));
 
-test('event data contains exactly eight unique participants and valid match references', async () => {
+test('event data contains exactly eight unique participants and starts empty', async () => {
   const event = await load('data/event.json');
   assert.equal(event.players.length, 8);
   const ids = new Set(event.players.map(player => player.id));
   assert.equal(ids.size, 8);
   assert.deepEqual(event.players.map(p => p.name), ['Whyl','Bayboushe','Maf','Clowrid','Gruntzy','linkthepomme','abyssou','Mino']);
-  assert.equal(event.matches.length, 6);
-  assert.ok(event.matches.every(match => match.id.startsWith('demo-')), 'all six results must be clearly labeled demo data');
+  assert.equal(event.matches.length, 0);
+  assert.equal(event.unlocks.length, 0);
   for (const match of event.matches) {
     const refs = match.placements ?? match.teams.flatMap(team => team.players);
     refs.forEach(id => assert.ok(ids.has(id), `${match.id} references unknown player ${id}`));
@@ -33,12 +33,6 @@ test('achievement catalog contains exactly twenty IDs and all unlock references 
   }
 });
 
-test('demo DotA matches use the 4v4 team format', async () => {
-  const event = await load('data/event.json');
-  const dotaMatches = event.matches.filter(match => match.game.startsWith('DotA'));
-  assert.ok(dotaMatches.length > 0);
-  assert.ok(dotaMatches.every(match => match.format === '4v4'));
-});
 
 test('page declares an existing favicon', async () => {
   const html = await readFile(new URL('index.html', root), 'utf8');
