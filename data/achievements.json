@@ -1,22 +1,142 @@
 [
-  {"id":"after-hours","group":"Endurance","name":"After Hours","description":"Activité entre 02:00 et 04:00."},
-  {"id":"night-shift","group":"Endurance","name":"Night Shift","description":"Activité entre 04:00 et 06:00."},
-  {"id":"early-boot","group":"Endurance","name":"Early Boot","description":"Activité entre 06:00 et 08:00."},
-  {"id":"morning-sync","group":"Endurance","name":"Morning Sync","description":"Activité entre 08:00 et 10:00."},
-  {"id":"full-protocol-stack","group":"Compétition","name":"Full Protocol Stack","description":"Marquer des points en FFA, 2v2v2v2 et 4v4."},
-  {"id":"first-blood","group":"Compétition","name":"First Blood","description":"Gagner un match officiel."},
-  {"id":"rollback-complete","group":"Compétition","name":"Rollback Complete","description":"Après un zéro, marquer au match suivant."},
-  {"id":"version-upgrade","group":"Compétition","name":"Version Upgrade","description":"Améliorer son résultat sur deux matchs consécutifs."},
-  {"id":"stable-connection","group":"Compétition","name":"Stable Connection","description":"Marquer dans cinq matchs consécutifs."},
-  {"id":"two-factor-victory","group":"Compétition","name":"Two-Factor Victory","description":"Gagner dans deux formats différents."},
-  {"id":"winning-streak","group":"Compétition","name":"Winning Streak","description":"Gagner deux matchs officiels consécutifs."},
-  {"id":"hat-trick","group":"Compétition","name":"Hat Trick","description":"Cumuler trois victoires."},
-  {"id":"podium-regular","group":"Compétition","name":"Podium Regular","description":"Finir dans le top 3 de trois matchs."},
-  {"id":"shut-down","group":"Compétition","name":"Shut Down","description":"Battre un joueur sur une série d’au moins deux victoires."},
-  {"id":"hotfix-deployed","group":"Vie en LAN","name":"Hotfix Deployed","description":"Aider à résoudre un problème technique."},
-  {"id":"plug-and-play","group":"Vie en LAN","name":"Plug and Play","description":"Prêter un périphérique, un câble ou une machine."},
-  {"id":"open-lobby","group":"Vie en LAN","name":"Open Lobby","description":"Jouer avec chaque participant comme allié ou adversaire."},
-  {"id":"local-backup","group":"Vie en LAN","name":"Local Backup","description":"Prendre ou partager une photo dans chaque session."},
-  {"id":"shared-resources","group":"Vie en LAN","name":"Shared Resources","description":"Apporter nourriture ou boissons."},
-  {"id":"achievement-unlocked","group":"Vie en LAN","name":"Achievement Unlocked","description":"Débloquer cinq autres achievements."}
+  {
+    "id": "after-hours",
+    "group": "Endurance",
+    "name": "After Hours",
+    "description": "Activité entre 02:00 et 04:00.",
+    "badge": "./assets/achievements/after-hours.webp"
+  },
+  {
+    "id": "night-shift",
+    "group": "Endurance",
+    "name": "Night Shift",
+    "description": "Activité entre 04:00 et 06:00.",
+    "badge": "./assets/achievements/night-shift.webp"
+  },
+  {
+    "id": "early-boot",
+    "group": "Endurance",
+    "name": "Early Boot",
+    "description": "Activité entre 06:00 et 08:00.",
+    "badge": "./assets/achievements/early-boot.webp"
+  },
+  {
+    "id": "morning-sync",
+    "group": "Endurance",
+    "name": "Morning Sync",
+    "description": "Activité entre 08:00 et 10:00.",
+    "badge": "./assets/achievements/morning-sync.webp"
+  },
+  {
+    "id": "full-protocol-stack",
+    "group": "Compétition",
+    "name": "Full Protocol Stack",
+    "description": "Marquer des points en FFA, 2v2v2v2 et 4v4.",
+    "badge": "./assets/achievements/full-protocol-stack.webp"
+  },
+  {
+    "id": "first-blood",
+    "group": "Compétition",
+    "name": "First Blood",
+    "description": "Gagner un match officiel.",
+    "badge": "./assets/achievements/first-blood.webp"
+  },
+  {
+    "id": "rollback-complete",
+    "group": "Compétition",
+    "name": "Rollback Complete",
+    "description": "Après un zéro, marquer au match suivant.",
+    "badge": "./assets/achievements/rollback-complete.webp"
+  },
+  {
+    "id": "version-upgrade",
+    "group": "Compétition",
+    "name": "Version Upgrade",
+    "description": "Améliorer son résultat sur deux matchs consécutifs.",
+    "badge": "./assets/achievements/version-upgrade.webp"
+  },
+  {
+    "id": "stable-connection",
+    "group": "Compétition",
+    "name": "Stable Connection",
+    "description": "Marquer dans cinq matchs consécutifs.",
+    "badge": "./assets/achievements/stable-connection.webp"
+  },
+  {
+    "id": "two-factor-victory",
+    "group": "Compétition",
+    "name": "Two-Factor Victory",
+    "description": "Gagner dans deux formats différents.",
+    "badge": "./assets/achievements/two-factor-victory.webp"
+  },
+  {
+    "id": "winning-streak",
+    "group": "Compétition",
+    "name": "Winning Streak",
+    "description": "Gagner deux matchs officiels consécutifs.",
+    "badge": "./assets/achievements/winning-streak.webp"
+  },
+  {
+    "id": "hat-trick",
+    "group": "Compétition",
+    "name": "Hat Trick",
+    "description": "Cumuler trois victoires.",
+    "badge": "./assets/achievements/hat-trick.webp"
+  },
+  {
+    "id": "podium-regular",
+    "group": "Compétition",
+    "name": "Podium Regular",
+    "description": "Finir dans le top 3 de trois matchs.",
+    "badge": "./assets/achievements/podium-regular.webp"
+  },
+  {
+    "id": "shut-down",
+    "group": "Compétition",
+    "name": "Shut Down",
+    "description": "Battre un joueur sur une série d’au moins deux victoires.",
+    "badge": "./assets/achievements/shut-down.webp"
+  },
+  {
+    "id": "hotfix-deployed",
+    "group": "Vie en LAN",
+    "name": "Hotfix Deployed",
+    "description": "Aider à résoudre un problème technique.",
+    "badge": "./assets/achievements/hotfix-deployed.webp"
+  },
+  {
+    "id": "plug-and-play",
+    "group": "Vie en LAN",
+    "name": "Plug and Play",
+    "description": "Prêter un périphérique, un câble ou une machine.",
+    "badge": "./assets/achievements/plug-and-play.webp"
+  },
+  {
+    "id": "open-lobby",
+    "group": "Vie en LAN",
+    "name": "Open Lobby",
+    "description": "Jouer avec chaque participant comme allié ou adversaire.",
+    "badge": "./assets/achievements/open-lobby.webp"
+  },
+  {
+    "id": "local-backup",
+    "group": "Vie en LAN",
+    "name": "Local Backup",
+    "description": "Prendre ou partager une photo dans chaque session.",
+    "badge": "./assets/achievements/local-backup.webp"
+  },
+  {
+    "id": "shared-resources",
+    "group": "Vie en LAN",
+    "name": "Shared Resources",
+    "description": "Apporter nourriture ou boissons.",
+    "badge": "./assets/achievements/shared-resources.webp"
+  },
+  {
+    "id": "achievement-unlocked",
+    "group": "Vie en LAN",
+    "name": "Achievement Unlocked",
+    "description": "Débloquer cinq autres achievements.",
+    "badge": "./assets/achievements/achievement-unlocked.webp"
+  }
 ]

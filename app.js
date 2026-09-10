@@ -57,10 +57,10 @@ function renderProgramme() {
 }
 
 function badgeStrip(playerId) {
-  const names = store.event.unlocks.filter(unlock => unlock.playerId === playerId).map(unlock => store.achievements.find(item => item.id === unlock.achievementId)?.name).filter(Boolean);
-  if (!names.length) return '<span class="locked-text">—</span>';
-  const shown = names.slice(0, 5);
-  return shown.map(name => `<span class="mini-badge" role="img" aria-label="${escapeHtml(name)}" title="${escapeHtml(name)}"></span>`).join('') + (names.length > shown.length ? `<span class="more-badges">+${names.length-shown.length}</span>` : '');
+  const earned = store.event.unlocks.filter(unlock => unlock.playerId === playerId).map(unlock => store.achievements.find(item => item.id === unlock.achievementId)).filter(Boolean);
+  if (!earned.length) return '<span class="locked-text">—</span>';
+  const shown = earned.slice(0, 5);
+  return shown.map(item => `<img class="mini-badge" src="${escapeHtml(item.badge)}" alt="" width="38" height="38" aria-label="${escapeHtml(item.name)}" title="${escapeHtml(item.name)}">`).join('') + (earned.length > shown.length ? `<span class="more-badges">+${earned.length-shown.length}</span>` : '');
 }
 
 function trendIndicator(trend) {
@@ -95,7 +95,7 @@ function renderClassement() {
 
 function renderAchievements() {
   const items = buildAchievements(store.achievements, store.event.unlocks, store.event.players);
-  const html = `<section class="achievement-catalog" aria-label="Catalogue des achievements"><div class="achievement-grid">${items.map(item => `<article class="achievement"><img src="./assets/achievement-placeholder.svg" alt="" width="64" height="64"><div><h2>${escapeHtml(item.name)}</h2><p>${escapeHtml(item.description)}</p><div class="achievement-players" aria-label="État des huit joueurs">${item.players.map(entry => avatar(entry.player,{small:true,state:entry.unlocked ? 'unlocked' : 'locked'})).join('')}</div></div></article>`).join('')}</div></section>`;
+  const html = `<section class="achievement-catalog" aria-label="Catalogue des achievements"><div class="achievement-grid">${items.map(item => `<article class="achievement"><img src="${escapeHtml(item.badge)}" alt="Badge ${escapeHtml(item.name)}" width="96" height="96" loading="lazy"><div><h2>${escapeHtml(item.name)}</h2><p>${escapeHtml(item.description)}</p><div class="achievement-players" aria-label="État des huit joueurs">${item.players.map(entry => avatar(entry.player,{small:true,state:entry.unlocked ? 'unlocked' : 'locked'})).join('')}</div></div></article>`).join('')}</div></section>`;
   app.innerHTML = viewHead('20 OBJECTIFS · 8 JOUEURS','Achievements') + html;
 }
 
