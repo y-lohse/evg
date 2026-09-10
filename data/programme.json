@@ -7,7 +7,7 @@
       "items": [
         {"time":"11:00–13:00","title":"Arrivées & jeux libres","games":[{"title":"Trackmania"},{"title":"Brawlhalla"},{"title":"Fall Guys"},{"title":"Rocket League"}],"tone":"neutral"},
         {"time":"13:00–16:00","title":"01 Bessines: Spawn Point","games":[{"title":"Warcraft III classique","formats":["FFA","4v4"]},{"title":"Footmen Frenzy","formats":["2v2v2v2"]}],"tone":"cyan","poster":"./assets/session-01.png","session":"SESSION 01"},
-        {"time":"16:00–17:00","title":"Pause jeux de société","games":[{"title":"Motus"},{"title":"Petit Bac"}],"tone":"neutral"},
+        {"time":"16:00–17:00","title":"Pause jeux de société","games":[{"title":"Petit Bac ou autre"}],"tone":"neutral"},
         {"time":"17:00–19:30","title":"02 Poitiers: Custom Campaign","games":[{"title":"Warlock","formats":["FFA"]},{"title":"Legion TD","formats":["4v4"]}],"tone":"orange","poster":"./assets/session-02.png","session":"SESSION 02"},
         {"time":"19:30–20:45","title":"Dîner","tone":"neutral"},
         {"time":"21:15–22:15","title":"Escape game","tone":"neutral"},
