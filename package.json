@@ -4,6 +4,6 @@
   "type": "module",
   "scripts": {
     "test": "node --test",
-    "check": "node --check app.js && node --check lib/scoring.js && node --check lib/view.js"
+    "check": "node --check app.js && node --check teams-page.js && node --check lib/scoring.js && node --check lib/teams.js && node --check lib/view.js"
   }
 }

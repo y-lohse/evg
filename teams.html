@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101820">
+  <meta name="description" content="Générateur d’équipes du Clowrid Invitational.">
+  <link rel="icon" href="./assets/achievements/after-hours.webp" type="image/webp">
+  <title>Générateur d’équipes // Clowrid Invitational</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body class="tool-page">
+  <a class="skip-link" href="#team-tool">Aller au générateur</a>
+  <div class="scanlines" aria-hidden="true"></div>
+  <header class="site-header tool-header">
+    <div class="brand-block">
+      <span class="brand-kicker">LAN EVENT / OUTIL SECONDAIRE</span>
+      <a class="brand" href="./" aria-label="Retour au Clowrid Invitational">CLOWRID<br><strong>INVITATIONAL</strong></a>
+    </div>
+    <a class="back-link" href="./">← Retour au programme</a>
+  </header>
+
+  <main id="team-tool">
+    <header class="view-head"><div><span class="eyebrow">TEAM ALLOCATION UTILITY</span><h1>Équipes</h1></div></header>
+
+    <div class="team-tool-layout">
+      <form class="team-config" id="team-form">
+        <fieldset>
+          <legend><span>01</span> Taille des équipes</legend>
+          <label class="choice-card">
+            <input type="radio" name="team-size" value="2" checked>
+            <span><strong>Duos</strong><small>4 équipes de 2</small></span>
+            <b>2v2v2v2</b>
+          </label>
+          <label class="choice-card">
+            <input type="radio" name="team-size" value="4">
+            <span><strong>Escouades</strong><small>2 équipes de 4</small></span>
+            <b>4v4</b>
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend><span>02</span> Mode de répartition</legend>
+          <label class="choice-card">
+            <input type="radio" name="mode" value="random" checked>
+            <span><strong>Full random</strong><small>Tirage totalement aléatoire</small></span>
+            <b>RNG</b>
+          </label>
+          <label class="choice-card">
+            <input type="radio" name="mode" value="balanced">
+            <span><strong>Équilibré</strong><small>Répartit les joueurs selon le classement actuel</small></span>
+            <b>RANK</b>
+          </label>
+        </fieldset>
+
+        <button class="generate-button" type="submit"><span>Générer les équipes</span><b>↻</b></button>
+        <p class="tool-note">Les joueurs à égalité au classement sont départagés aléatoirement à chaque tirage.</p>
+      </form>
+
+      <section class="team-output" aria-labelledby="team-output-title" aria-live="polite">
+        <header class="output-head"><div><span class="eyebrow">RÉSULTAT DU TIRAGE</span><h2 id="team-output-title">Configuration prête</h2></div><span id="mode-readout">4 ÉQUIPES · FULL RANDOM</span></header>
+        <div class="generated-teams" id="generated-teams"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <span>CLOWRID INVITATIONAL // TEAM UTILITY</span>
+    <a href="./">RETOUR AU MONITEUR</a>
+  </footer>
+  <script type="module" src="./teams-page.js"></script>
+</body>
+</html>

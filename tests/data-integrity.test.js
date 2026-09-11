@@ -90,3 +90,12 @@ test('shell omits refresh controls and legacy descriptive banner copy', async ()
   assert.doesNotMatch(html, /Actualiser|id="refresh"/i);
   assert.doesNotMatch(app, /Deux jours, quatre sessions|ÉCRAN|scoreboard|planification/i);
 });
+
+test('team generator is available outside the main navigation', async () => {
+  const html = await readFile(new URL('index.html', root), 'utf8');
+  const navigation = html.match(/<nav class="main-nav"[\s\S]*?<\/nav>/)?.[0] ?? '';
+  const footer = html.match(/<footer>[\s\S]*?<\/footer>/)?.[0] ?? '';
+  assert.doesNotMatch(navigation, /teams\.html/);
+  assert.match(footer, /teams\.html/);
+  await access(new URL('teams.html', root));
+});
