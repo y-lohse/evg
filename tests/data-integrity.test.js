@@ -1,23 +1,30 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile, access } from 'node:fs/promises';
+import { buildLeaderboard } from '../lib/scoring.js';
 
 const root = new URL('../', import.meta.url);
 const load = async path => JSON.parse(await readFile(new URL(path, root), 'utf8'));
 
-test('event data contains exactly eight unique participants and starts empty', async () => {
+test('event data contains eight unique participants and valid results', async () => {
   const event = await load('data/event.json');
   assert.equal(event.players.length, 8);
   const ids = new Set(event.players.map(player => player.id));
   assert.equal(ids.size, 8);
   assert.deepEqual(event.players.map(p => p.name), ['Whyl','Bayboushe','Maf','Clowrid','Gruntzy','linkthepomme','abyssou','Mino']);
-  assert.equal(event.matches.length, 0);
-  assert.equal(event.unlocks.length, 0);
+  assert.ok(Array.isArray(event.matches));
+  assert.ok(Array.isArray(event.unlocks));
+  assert.equal(new Set(event.matches.map(match => match.id)).size, event.matches.length, 'duplicate match IDs');
   for (const match of event.matches) {
+    assert.ok(typeof match.id === 'string' && match.id.trim(), 'missing match ID');
+    assert.ok(['01', '02', '03', '04'].includes(match.session), `${match.id}: invalid session`);
+    assert.ok(typeof match.game === 'string' && match.game.trim(), `${match.id}: missing game`);
+    assert.ok(typeof match.date === 'string' && /T.*(?:Z|[+-]\d{2}:\d{2})$/.test(match.date) && Number.isFinite(Date.parse(match.date)), `${match.id}: invalid date or missing timezone`);
     const refs = match.placements ?? match.teams.flatMap(team => team.players);
     refs.forEach(id => assert.ok(ids.has(id), `${match.id} references unknown player ${id}`));
     assert.equal(new Set(refs).size, 8, `${match.id} must reference all eight players once`);
   }
+  buildLeaderboard(event.players, event.matches);
 });
 
 test('achievement catalog contains exactly twenty IDs and all unlock references are valid', async () => {
@@ -27,6 +34,7 @@ test('achievement catalog contains exactly twenty IDs and all unlock references 
   const achievementIds = new Set(achievements.map(a => a.id));
   const playerIds = new Set(event.players.map(p => p.id));
   assert.equal(achievementIds.size, 20);
+  assert.equal(new Set(event.unlocks.map(unlock => `${unlock.playerId}:${unlock.achievementId}`)).size, event.unlocks.length, 'duplicate achievement unlocks');
   for (const unlock of event.unlocks) {
     assert.ok(achievementIds.has(unlock.achievementId), `unknown achievement ${unlock.achievementId}`);
     assert.ok(playerIds.has(unlock.playerId), `unknown player ${unlock.playerId}`);
