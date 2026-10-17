@@ -3,7 +3,7 @@
     "title": "Clowrid Invitational",
     "edition": "2026",
     "status": "Session 01 en cours",
-    "updated": "2026-10-17T14:46:22+02:00"
+    "updated": "2026-10-17T16:02:59+02:00"
   },
   "players": [
     {"id":"whyl","name":"Whyl","initials":"WY","color":"#65D5D2"},
@@ -34,6 +34,19 @@
       "game": "Warcraft III classique — Partie 2",
       "format": "ffa",
       "placements": ["bayboushe","clowrid","linkthepomme","abyssou","maf","gruntzy","mino","whyl"]
+    },
+    {
+      "id": "s01-footmen-01",
+      "session": "01",
+      "date": "2026-10-17T16:02:59+02:00",
+      "game": "Footmen Frenzy — Partie 1",
+      "format": "2v2v2v2",
+      "teams": [
+        {"placement":1,"players":["clowrid","gruntzy"]},
+        {"placement":2,"players":["abyssou","maf"]},
+        {"placement":3,"players":["whyl","mino"]},
+        {"placement":4,"players":["bayboushe","linkthepomme"]}
+      ]
     }
   ],
   "unlocks": [
@@ -52,6 +65,21 @@
     {"playerId":"linkthepomme","achievementId":"shared-resources"},
     {"playerId":"abyssou","achievementId":"shared-resources"},
     {"playerId":"mino","achievementId":"shared-resources"},
-    {"playerId":"clowrid","achievementId":"plug-and-play"}
+    {"playerId":"clowrid","achievementId":"plug-and-play"},
+    {"playerId":"gruntzy","achievementId":"first-blood"},
+    {"playerId":"whyl","achievementId":"version-upgrade"},
+    {"playerId":"mino","achievementId":"version-upgrade"},
+    {"playerId":"gruntzy","achievementId":"version-upgrade"},
+    {"playerId":"maf","achievementId":"version-upgrade"},
+    {"playerId":"abyssou","achievementId":"version-upgrade"},
+    {"playerId":"whyl","achievementId":"rollback-complete"},
+    {"playerId":"mino","achievementId":"rollback-complete"},
+    {"playerId":"gruntzy","achievementId":"rollback-complete"},
+    {"playerId":"clowrid","achievementId":"full-protocol-stack"},
+    {"playerId":"maf","achievementId":"full-protocol-stack"},
+    {"playerId":"abyssou","achievementId":"full-protocol-stack"},
+    {"playerId":"clowrid","achievementId":"podium-regular"},
+    {"playerId":"clowrid","achievementId":"two-factor-victory"},
+    {"playerId":"clowrid","achievementId":"achievement-unlocked"}
   ]
 }
