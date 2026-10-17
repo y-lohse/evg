@@ -3,7 +3,7 @@
     "title": "Clowrid Invitational",
     "edition": "2026",
     "status": "Session 02 en cours",
-    "updated": "2026-10-17T18:18:16+02:00"
+    "updated": "2026-10-17T19:32:39+02:00"
   },
   "players": [
     {"id":"whyl","name":"Whyl","initials":"WY","color":"#65D5D2"},
@@ -58,6 +58,14 @@
         {"outcome":"win","players":["clowrid","linkthepomme","whyl","maf"]},
         {"outcome":"loss","players":["bayboushe","abyssou","gruntzy","mino"]}
       ]
+    },
+    {
+      "id": "s02-warlock-01",
+      "session": "02",
+      "date": "2026-10-17T19:32:39+02:00",
+      "game": "Warlock — Partie 1",
+      "format": "ffa",
+      "placements": ["clowrid","bayboushe","maf","whyl","mino","gruntzy","abyssou","linkthepomme"]
     }
   ],
   "unlocks": [
@@ -99,6 +107,9 @@
     {"playerId":"clowrid","achievementId":"winning-streak"},
     {"playerId":"clowrid","achievementId":"hat-trick"},
     {"playerId":"maf","achievementId":"podium-regular"},
-    {"playerId":"maf","achievementId":"achievement-unlocked"}
+    {"playerId":"maf","achievementId":"achievement-unlocked"},
+    {"playerId":"clowrid","achievementId":"stable-connection"},
+    {"playerId":"maf","achievementId":"stable-connection"},
+    {"playerId":"mino","achievementId":"full-protocol-stack"}
   ]
 }
