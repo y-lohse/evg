@@ -115,7 +115,7 @@
     "id": "open-lobby",
     "group": "Vie en LAN",
     "name": "Open Lobby",
-    "description": "Jouer avec chaque participant comme allié ou adversaire.",
+    "description": "Avoir été allié avec chacun des autres participants.",
     "badge": "./assets/achievements/open-lobby.webp"
   },
   {

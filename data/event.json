@@ -3,7 +3,7 @@
     "title": "Clowrid Invitational",
     "edition": "2026",
     "status": "Session 01 en cours",
-    "updated": "2026-10-17T14:25:58+02:00"
+    "updated": "2026-10-17T14:46:22+02:00"
   },
   "players": [
     {"id":"whyl","name":"Whyl","initials":"WY","color":"#65D5D2"},
@@ -26,6 +26,14 @@
         {"outcome":"win","players":["maf","clowrid","linkthepomme","abyssou"]},
         {"outcome":"loss","players":["mino","whyl","gruntzy","bayboushe"]}
       ]
+    },
+    {
+      "id": "s01-war3-ffa-02",
+      "session": "01",
+      "date": "2026-10-17T14:45:44+02:00",
+      "game": "Warcraft III classique — Partie 2",
+      "format": "ffa",
+      "placements": ["bayboushe","clowrid","linkthepomme","abyssou","maf","gruntzy","mino","whyl"]
     }
   ],
   "unlocks": [
@@ -33,13 +41,17 @@
     {"playerId":"clowrid","achievementId":"first-blood"},
     {"playerId":"linkthepomme","achievementId":"first-blood"},
     {"playerId":"abyssou","achievementId":"first-blood"},
-    {"playerId":"whyl","achievementId":"open-lobby"},
-    {"playerId":"bayboushe","achievementId":"open-lobby"},
-    {"playerId":"maf","achievementId":"open-lobby"},
-    {"playerId":"clowrid","achievementId":"open-lobby"},
-    {"playerId":"gruntzy","achievementId":"open-lobby"},
-    {"playerId":"linkthepomme","achievementId":"open-lobby"},
-    {"playerId":"abyssou","achievementId":"open-lobby"},
-    {"playerId":"mino","achievementId":"open-lobby"}
+    {"playerId":"bayboushe","achievementId":"first-blood"},
+    {"playerId":"bayboushe","achievementId":"version-upgrade"},
+    {"playerId":"clowrid","achievementId":"version-upgrade"},
+    {"playerId":"whyl","achievementId":"shared-resources"},
+    {"playerId":"bayboushe","achievementId":"shared-resources"},
+    {"playerId":"maf","achievementId":"shared-resources"},
+    {"playerId":"clowrid","achievementId":"shared-resources"},
+    {"playerId":"gruntzy","achievementId":"shared-resources"},
+    {"playerId":"linkthepomme","achievementId":"shared-resources"},
+    {"playerId":"abyssou","achievementId":"shared-resources"},
+    {"playerId":"mino","achievementId":"shared-resources"},
+    {"playerId":"clowrid","achievementId":"plug-and-play"}
   ]
 }
