@@ -2,8 +2,8 @@
   "meta": {
     "title": "Clowrid Invitational",
     "edition": "2026",
-    "status": "Session 01 en cours",
-    "updated": "2026-10-17T16:02:59+02:00"
+    "status": "Session 02 en cours",
+    "updated": "2026-10-17T18:18:16+02:00"
   },
   "players": [
     {"id":"whyl","name":"Whyl","initials":"WY","color":"#65D5D2"},
@@ -47,6 +47,17 @@
         {"placement":3,"players":["whyl","mino"]},
         {"placement":4,"players":["bayboushe","linkthepomme"]}
       ]
+    },
+    {
+      "id": "s02-legion-01",
+      "session": "02",
+      "date": "2026-10-17T18:18:16+02:00",
+      "game": "Legion TD — Partie 1",
+      "format": "4v4",
+      "teams": [
+        {"outcome":"win","players":["clowrid","linkthepomme","whyl","maf"]},
+        {"outcome":"loss","players":["bayboushe","abyssou","gruntzy","mino"]}
+      ]
     }
   ],
   "unlocks": [
@@ -80,6 +91,14 @@
     {"playerId":"abyssou","achievementId":"full-protocol-stack"},
     {"playerId":"clowrid","achievementId":"podium-regular"},
     {"playerId":"clowrid","achievementId":"two-factor-victory"},
-    {"playerId":"clowrid","achievementId":"achievement-unlocked"}
+    {"playerId":"clowrid","achievementId":"achievement-unlocked"},
+    {"playerId":"whyl","achievementId":"first-blood"},
+    {"playerId":"bayboushe","achievementId":"rollback-complete"},
+    {"playerId":"linkthepomme","achievementId":"rollback-complete"},
+    {"playerId":"linkthepomme","achievementId":"version-upgrade"},
+    {"playerId":"clowrid","achievementId":"winning-streak"},
+    {"playerId":"clowrid","achievementId":"hat-trick"},
+    {"playerId":"maf","achievementId":"podium-regular"},
+    {"playerId":"maf","achievementId":"achievement-unlocked"}
   ]
 }
