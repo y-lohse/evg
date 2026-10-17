@@ -2,8 +2,8 @@
   "meta": {
     "title": "Clowrid Invitational",
     "edition": "2026",
-    "status": "En attente des premiers résultats",
-    "updated": "2026-09-10T12:17:18+00:00"
+    "status": "Session 01 en cours",
+    "updated": "2026-10-17T14:25:58+02:00"
   },
   "players": [
     {"id":"whyl","name":"Whyl","initials":"WY","color":"#65D5D2"},
@@ -15,6 +15,31 @@
     {"id":"abyssou","name":"abyssou","initials":"AB","color":"#E3C463"},
     {"id":"mino","name":"Mino","initials":"MN","color":"#B58BCB"}
   ],
-  "matches": [],
-  "unlocks": []
+  "matches": [
+    {
+      "id": "s01-war3-4v4-01",
+      "session": "01",
+      "date": "2026-10-17T14:25:24+02:00",
+      "game": "Warcraft III classique — Partie 1",
+      "format": "4v4",
+      "teams": [
+        {"outcome":"win","players":["maf","clowrid","linkthepomme","abyssou"]},
+        {"outcome":"loss","players":["mino","whyl","gruntzy","bayboushe"]}
+      ]
+    }
+  ],
+  "unlocks": [
+    {"playerId":"maf","achievementId":"first-blood"},
+    {"playerId":"clowrid","achievementId":"first-blood"},
+    {"playerId":"linkthepomme","achievementId":"first-blood"},
+    {"playerId":"abyssou","achievementId":"first-blood"},
+    {"playerId":"whyl","achievementId":"open-lobby"},
+    {"playerId":"bayboushe","achievementId":"open-lobby"},
+    {"playerId":"maf","achievementId":"open-lobby"},
+    {"playerId":"clowrid","achievementId":"open-lobby"},
+    {"playerId":"gruntzy","achievementId":"open-lobby"},
+    {"playerId":"linkthepomme","achievementId":"open-lobby"},
+    {"playerId":"abyssou","achievementId":"open-lobby"},
+    {"playerId":"mino","achievementId":"open-lobby"}
+  ]
 }
