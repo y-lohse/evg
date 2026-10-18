@@ -115,12 +115,12 @@ function renderClassement() {
     <strong class="score">${player.score}<small class="score-label">PTS</small></strong>
   </div>`).join('');
   const history = rows.map(match => `<article class="match-card">
-    <header class="match-head"><div><span class="match-meta">${formatDate(match.date)} · SESSION ${escapeHtml(match.session)}</span><h3>${escapeHtml(match.game)}</h3></div>${formatMark(match.format, match.groups)}</header>
-    ${match.format === 'ffa' ? `<div class="match-results">${match.results.map(result => `<div class="result-line">${avatar(result.player,{small:true})}<span><span class="result-summary"><span class="result-player">${escapeHtml(result.player.name)}</span><b class="points">+${result.points}</b></span><span class="result-label">${escapeHtml(result.label)}</span></span></div>`).join('')}</div>` : `<div class="team-groups">${match.groups.map(renderTeamGroup).join('')}</div>`}
+    <header class="match-head"><div><span class="match-meta">${formatDate(match.date)} · SESSION ${escapeHtml(match.session)}</span><h3>${escapeHtml(match.game)}</h3></div>${match.scoring === 'winner-only' ? '<span class="format-chip">2v2 · victoire seule</span>' : formatMark(match.format, match.groups)}</header>
+    ${match.results.length ? `<div class="match-results">${match.results.map(result => `<div class="result-line">${avatar(result.player,{small:true})}<span><span class="result-summary"><span class="result-player">${escapeHtml(result.player.name)}</span><b class="points">+${result.points}</b></span><span class="result-label">${escapeHtml(result.label)}</span></span></div>`).join('')}</div>` : `<div class="team-groups">${match.groups.map(renderTeamGroup).join('')}</div>`}
   </article>`).join('');
   app.innerHTML = viewHead('8 JOUEURS · CLASSEMENT GÉNÉRAL','Classement') + `<div class="score-layout">
     <section aria-labelledby="ranking-title"><h2 class="section-title" id="ranking-title"><span>●</span> Tableau live</h2><div class="leaderboard">${leaderboard}</div>
-      <aside class="rules"><h3>Protocole de score · 12 pts / résultat</h3><dl><dt>FFA · places 1→8</dt><dd>5 / 3 / 2 / 1 / 1 / 0 / 0 / 0</dd><dt>4 équipes · par joueur</dt><dd>3 / 2 / 1 / 0</dd><dt>2 équipes · par joueur</dt><dd>2 victoire / 1 défaite</dd></dl></aside>
+      <aside class="rules"><h3>Protocole de score · 12 pts / résultat</h3><dl><dt>FFA · places 1→8</dt><dd>5 / 3 / 2 / 1 / 1 / 0 / 0 / 0</dd><dt>4 équipes · par joueur</dt><dd>3 / 2 / 1 / 0</dd><dt>2 équipes · par joueur</dt><dd>2 victoire / 1 défaite</dd><dt>Knight Squad 2 · FFA spécial</dt><dd>Bayboushe 4 / Maf 2 / autres 1 · 12 pts</dd><dt>Knight Squad 2 · duos</dt><dd>3 victoire / 1 participation</dd></dl></aside>
     </section><section class="history-column" aria-labelledby="history-title"><div class="history-title-row"><h2 class="section-title" id="history-title">Historique des résultats</h2><span>${rows.length} RÉSULTATS</span></div><div class="history-list">${history || '<p class="history-empty">Aucun résultat enregistré.</p>'}</div></section></div>`;
 }
 

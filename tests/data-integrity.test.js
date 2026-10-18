@@ -20,7 +20,7 @@ test('event data contains eight unique participants and valid results', async ()
     assert.ok(['01', '02', '03', '04'].includes(match.session), `${match.id}: invalid session`);
     assert.ok(typeof match.game === 'string' && match.game.trim(), `${match.id}: missing game`);
     assert.ok(typeof match.date === 'string' && /T.*(?:Z|[+-]\d{2}:\d{2})$/.test(match.date) && Number.isFinite(Date.parse(match.date)), `${match.id}: invalid date or missing timezone`);
-    const refs = match.placements ?? match.teams.flatMap(team => team.players);
+    const refs = match.participants ?? match.placements ?? match.teams.flatMap(team => team.players);
     refs.forEach(id => assert.ok(ids.has(id), `${match.id} references unknown player ${id}`));
     assert.equal(new Set(refs).size, 8, `${match.id} must reference all eight players once`);
   }

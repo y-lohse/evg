@@ -2,8 +2,8 @@
   "meta": {
     "title": "Clowrid Invitational",
     "edition": "2026",
-    "status": "Session 03 en cours",
-    "updated": "2026-10-18T00:29:13+02:00"
+    "status": "Session 04 en cours",
+    "updated": "2026-10-18T11:38:55+02:00"
   },
   "players": [
     {"id":"whyl","name":"Whyl","initials":"WY","color":"#65D5D2"},
@@ -77,6 +77,47 @@
         {"outcome":"win","players":["clowrid","whyl","mino","gruntzy"]},
         {"outcome":"loss","players":["bayboushe","maf","abyssou","linkthepomme"]}
       ]
+    },
+    {
+      "session": "04",
+      "date": "2026-10-18T11:38:55+02:00",
+      "id": "s04-ks2-01-ffa",
+      "game": "Knight Squad 2 — FFA",
+      "format": "ffa",
+      "scoring": "knight-squad-ffa",
+      "participants": ["whyl","bayboushe","maf","clowrid","gruntzy","linkthepomme","abyssou","mino"],
+      "leaders": ["bayboushe","maf"]
+    },
+    {
+      "session": "04",
+      "date": "2026-10-18T11:38:55+02:00",
+      "id": "s04-ks2-02-duos",
+      "game": "Knight Squad 2 — Duos 1",
+      "format": "2v2v2v2",
+      "scoring": "winner-only",
+      "participants": ["whyl","bayboushe","maf","clowrid","gruntzy","linkthepomme","abyssou","mino"],
+      "winners": ["maf","gruntzy"]
+    },
+    {
+      "session": "04",
+      "date": "2026-10-18T11:38:55+02:00",
+      "id": "s04-ks2-03-4v4",
+      "game": "Knight Squad 2 — 4v4",
+      "format": "4v4",
+      "teams": [
+        {"outcome":"win","players":["whyl","linkthepomme","bayboushe","maf"]},
+        {"outcome":"loss","players":["mino","clowrid","gruntzy","abyssou"]}
+      ]
+    },
+    {
+      "session": "04",
+      "date": "2026-10-18T11:38:55+02:00",
+      "id": "s04-ks2-04-duos",
+      "game": "Knight Squad 2 — Duos 2",
+      "format": "2v2v2v2",
+      "scoring": "winner-only",
+      "participants": ["whyl","bayboushe","maf","clowrid","gruntzy","linkthepomme","abyssou","mino"],
+      "winners": ["mino","clowrid"]
     }
   ],
   "unlocks": [
@@ -129,6 +170,34 @@
     {"playerId":"mino","achievementId":"achievement-unlocked"},
     {"playerId":"gruntzy","achievementId":"achievement-unlocked"},
     {"playerId":"abyssou","achievementId":"achievement-unlocked"},
-    {"playerId":"whyl","achievementId":"achievement-unlocked"}
+    {"playerId":"whyl","achievementId":"achievement-unlocked"},
+    {"playerId":"linkthepomme","achievementId":"podium-regular"},
+    {"playerId":"linkthepomme","achievementId":"achievement-unlocked"},
+    {"playerId":"whyl","achievementId":"podium-regular"},
+    {"playerId":"whyl","achievementId":"stable-connection"},
+    {"playerId":"bayboushe","achievementId":"shut-down"},
+    {"playerId":"bayboushe","achievementId":"podium-regular"},
+    {"playerId":"bayboushe","achievementId":"achievement-unlocked"},
+    {"playerId":"gruntzy","achievementId":"full-protocol-stack"},
+    {"playerId":"mino","achievementId":"stable-connection"},
+    {"playerId":"bayboushe","achievementId":"stable-connection"},
+    {"playerId":"bayboushe","achievementId":"full-protocol-stack"},
+    {"playerId":"maf","achievementId":"hat-trick"},
+    {"playerId":"maf","achievementId":"two-factor-victory"},
+    {"playerId":"gruntzy","achievementId":"hat-trick"},
+    {"playerId":"gruntzy","achievementId":"podium-regular"},
+    {"playerId":"linkthepomme","achievementId":"full-protocol-stack"},
+    {"playerId":"whyl","achievementId":"hat-trick"},
+    {"playerId":"bayboushe","achievementId":"hat-trick"},
+    {"playerId":"bayboushe","achievementId":"two-factor-victory"},
+    {"playerId":"maf","achievementId":"winning-streak"},
+    {"playerId":"linkthepomme","achievementId":"hat-trick"},
+    {"playerId":"clowrid","achievementId":"shut-down"},
+    {"playerId":"gruntzy","achievementId":"stable-connection"},
+    {"playerId":"linkthepomme","achievementId":"stable-connection"},
+    {"playerId":"abyssou","achievementId":"stable-connection"},
+    {"playerId":"mino","achievementId":"shut-down"},
+    {"playerId":"mino","achievementId":"two-factor-victory"},
+    {"playerId":"mino","achievementId":"podium-regular"}
   ]
 }
