@@ -3,7 +3,7 @@
     "title": "Clowrid Invitational",
     "edition": "2026",
     "status": "Session 04 en cours",
-    "updated": "2026-10-18T11:38:55+02:00"
+    "updated": "2026-10-18T13:31:54+02:00"
   },
   "players": [
     {"id":"whyl","name":"Whyl","initials":"WY","color":"#65D5D2"},
@@ -118,6 +118,32 @@
       "scoring": "winner-only",
       "participants": ["whyl","bayboushe","maf","clowrid","gruntzy","linkthepomme","abyssou","mino"],
       "winners": ["mino","clowrid"]
+    },
+    {
+      "id": "s04-worms-01",
+      "session": "04",
+      "date": "2026-10-18T13:31:54+02:00",
+      "game": "Worms W.M.D. — Partie 1",
+      "format": "2v2v2v2",
+      "teams": [
+        {"placement":1,"players":["gruntzy","mino"]},
+        {"placement":2,"players":["clowrid","abyssou"]},
+        {"placement":3,"players":["bayboushe","linkthepomme"]},
+        {"placement":4,"players":["maf","whyl"]}
+      ]
+    },
+    {
+      "id": "s04-worms-02",
+      "session": "04",
+      "date": "2026-10-18T13:31:54+02:00",
+      "game": "Worms W.M.D. — Partie 2",
+      "format": "2v2v2v2",
+      "teams": [
+        {"placement":1,"players":["maf","whyl"]},
+        {"placement":2,"players":["clowrid","abyssou"]},
+        {"placement":3,"players":["bayboushe","linkthepomme"]},
+        {"placement":4,"players":["gruntzy","mino"]}
+      ]
     }
   ],
   "unlocks": [
@@ -198,6 +224,13 @@
     {"playerId":"abyssou","achievementId":"stable-connection"},
     {"playerId":"mino","achievementId":"shut-down"},
     {"playerId":"mino","achievementId":"two-factor-victory"},
-    {"playerId":"mino","achievementId":"podium-regular"}
+    {"playerId":"mino","achievementId":"podium-regular"},
+    {"playerId":"mino","achievementId":"winning-streak"},
+    {"playerId":"mino","achievementId":"hat-trick"},
+    {"playerId":"abyssou","achievementId":"podium-regular"},
+    {"playerId":"maf","achievementId":"rollback-complete"},
+    {"playerId":"maf","achievementId":"shut-down"},
+    {"playerId":"whyl","achievementId":"shut-down"},
+    {"playerId":"whyl","achievementId":"two-factor-victory"}
   ]
 }

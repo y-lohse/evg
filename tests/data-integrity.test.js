@@ -75,7 +75,7 @@ test('official programme sessions use structured games with participant-facing f
   const dota = official.flatMap(session => session.games).find(game => game.title === 'DotA');
   assert.deepEqual(dota.formats, ['4v4']);
   const worms = official.flatMap(session => session.games).find(game => game.title === 'Worms W.M.D.');
-  assert.deepEqual(worms.formats, ['4v4']);
+  assert.deepEqual(worms.formats, ['2v2v2v2']);
 });
 
 test('programme includes revised overnight and Sunday copy', async () => {
